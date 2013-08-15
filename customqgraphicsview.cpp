@@ -1,4 +1,5 @@
 #include "customqgraphicsview.h"
+#include "styles.h"
 
 // Constant Non-integer Declarations
 // float type must not be initialized in the class declaration, but also NOT in

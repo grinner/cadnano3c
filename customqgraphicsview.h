@@ -14,10 +14,6 @@
 #include <QGraphicsRectItem>
 #include <QTransform>
 
-#define PATH_BASE_WIDTH     10
-#define PATH_HELIX_HEIGHT    8
-#define PATH_HELIX_PADDING  12
-
 class CustomQGraphicsView : public QGraphicsView
 {
     Q_OBJECT

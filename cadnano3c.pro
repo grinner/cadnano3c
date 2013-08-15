@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    customqgraphicsview.cpp
+    customqgraphicsview.cpp \
+    styles.cpp
 
 HEADERS  += mainwindow.h \
-    customqgraphicsview.h
+    customqgraphicsview.h \
+    styles.h
 
 FORMS    += mainwindow.ui
 

@@ -1,0 +1,6 @@
+SEQUENCEFONT->setStyleHint(QFont::Monospace);
+SEQUENCEFONT->setFixedPitch(true);
+SEQUENCEFONT->setPixelSize(SEQUENCEFONTH);
+SEQUENCEFONT->setLetterSpacing(QFont.AbsoluteSpacing, SEQUENCEFONTEXTRAWIDTH);
+
+int SEQUENCEFONTCHARWIDTH = SEQUENCEFONTMETRICS.width('A');
