@@ -13,6 +13,8 @@
 #include <QWheelEvent>
 #include <QGraphicsRectItem>
 #include <QTransform>
+#include <QString>
+#include <QTimer>
 
 class CustomQGraphicsView : public QGraphicsView
 {
@@ -21,19 +23,19 @@ public:
     explicit CustomQGraphicsView(QWidget *parent = 0);
 
 protected:
-//    void focusInEvent(QFocusEvent *event);
+    void focusInEvent(QFocusEvent *event);
 
-//    void focusOutEvent(QFocusEvent *event);
+    void focusOutEvent(QFocusEvent *event);
 
     void keyPressEvent(QKeyEvent *event);
 
-//    void keyReleaseEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
 
-//    void enterEvent(QEvent * event);
+    void enterEvent(QEvent *event);
 
-//    void leaveEvent(QEvent *);
+    void leaveEvent(QEvent *event);
 
-//    void mouseMoveEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 
 //    void mousePressEvent(QMouseEvent *event);
 
@@ -44,6 +46,9 @@ protected:
 //    void paintEvent(QPaintEvent *event);
 
 private:
+    QString name;
+    // toolbar;
+
     // constant floats to be initialize below by C++ standard
     static const double scale_limit_max;
     static const double scale_limit_min;
@@ -62,6 +67,15 @@ private:
     bool show_details;
     bool has_focus;
     bool transform_enable;
+    bool dolly_zoom_enable;
+
+    bool is_GL_switch_allowed;
+    bool is_GL;
+    QTimer *qTimer;
+
+    static const DragMode no_drag = QGraphicsView::RubberBandDrag;
+    static const DragMode yes_drag = QGraphicsView::ScrollHandDrag;
+
 
     QGraphicsRectItem *scene_root_item;  // the item to transform
 
@@ -102,9 +116,11 @@ private:
 
     void clearSelectionLockAndCallbacks();
 
-    void setGLView();
+    void setGLView(bool boolval);
 
     void resetGL();
+
+    void setupGL();
 
     bool shouldShowDetails();
 
@@ -119,7 +135,8 @@ private:
     //    void setKeyPan(button);
 
 signals:
-    
+    void levelOfDetailChangedSignal(bool iszoomedout);
+
 public slots:
     
 };
