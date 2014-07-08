@@ -1,4 +1,9 @@
 #include "styles.h"
+// migrate to a Style Class that loads a json config file and creates
+// a Q_GLOBAL_STATIC_WITH_ARGS(CN_Styles, my_cn_styles, "path to config.json")
+// and only extern the my_cn_styles
+// http://qt-project.org/doc/qt-5/qglobalstatic.html#details
+// or create a context object?
 
 namespace {
 
