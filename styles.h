@@ -5,8 +5,6 @@
 #include <QFont>
 #include <QFontMetricsF>
 
-#define ISWIN 1
-
 // Slice Sizing
 #define SLICE_HELIX_RADIUS              15
 #define SLICE_HELIX_STROKE_WIDTH        0.5
@@ -124,12 +122,12 @@ extern int SEQUENCEFONTCHARWIDTH;
 #define SEQUENCETEXTYCENTERINGOFFSET           (PATH_BASE_WIDTH * 0.6)
 
 extern QFont XOVER_LABEL_FONT;
-#ifdef ISMAC
+#ifdef Q_WS_WIN
 //    #define THEFONT           "Times"
     #define THEFONT           "Arial"
     #define THEFONTSIZE       10
 
-#elif ISWIN
+#elif Q_WS_MAC
 //    #define THEFONT           "Segoe UI"
 //    #define THEFONT           "Calibri"
     #define THEFONT           "Arial"
