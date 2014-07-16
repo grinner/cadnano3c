@@ -1,6 +1,6 @@
 #include "document.h"
 
-void Document::Document() : m_id_counter(0) {
+void Document::Document() : QObject(), m_id_counter(0) {
 //   app.documentWasCreatedSignal();
 }
 
@@ -66,6 +66,7 @@ bool Document::removeStrandFromSelection(CNObject *strand) {
         }
     } else {
         return false;
+    }
 }
 
 QSet<CNObject> * Document::selectedOligos() {

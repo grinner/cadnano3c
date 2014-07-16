@@ -24,7 +24,10 @@ HEADERS  += mainwindow.h \
     styles.h \
     document.h \
     cnobject.h \
-    common.h
+    common.h \
+    strandset.h \
+    vhelix.h \
+    part.h
 
 FORMS    += mainwindow.ui
 
