@@ -11,8 +11,14 @@ public:
     Part(Document *doc);
     bool isEvenParity(coord_t);
 
+    uint getVHID();
+    void recycleVHID(uint id);
+
+
 private:
     QHash<CNObject, CNObject> strands_dict;
+    QVector<uint> m_used_ids;
+    uint m_id_counter;
 
 signals:
     void partActiveSliceIndexSignal(QObject *, int); // self, index

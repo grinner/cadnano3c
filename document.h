@@ -6,11 +6,15 @@
 #include <QVector>
 #include <QJsonObject>
 #include <QHash>
+#include <QMultiHash>
 #include <QSet>
 #include "common.h"
 #include "cnobject.h"
 
-typedef QHash<CNObject, endpts_select_t> CNStrandSelectHash_t;
+// adhoc tuple (strand_id, (is_selected_low, is_selected_high))
+typedef QPair<CNObject *, endpts_select_t> strand_select_t;
+
+typedef QHash<CNObject, strand_select_t> CNStrandSelectHash_t;
 
 class Document : public QObject
 {
@@ -29,7 +33,7 @@ public:
     QVector<CNAssembly> assemblies();
 
     uint getUUID();
-    void returnUUID(uint id);
+    void recycleUUID(uint id);
 
     CNPart * selectedPart();
     void addToSelection(CNObject *, endpts_select_t value);
@@ -58,7 +62,10 @@ private:
 
     CNController m_controller;
     CNPart * m_selected_part;
-    QHash<CNObject, CNStrandSelectHash_t *> m_selection_dict;
+    QHash<CNObject, CNStrandSelectHash_t> m_selection_dict;
+    // assume no dupes and you can use a multihash
+    QMultiHash<uint, strand_select_t> m_selection_dict2;
+
     CNStrandSelectHash_t m_selection_changed_dict;
 
 signals:
