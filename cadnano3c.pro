@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     customqgraphicsview.cpp \
     styles.cpp \
     document.cpp \
-    cnobject.cpp
+    cnobject.cpp \
+    vhelix.cpp
 
 HEADERS  += mainwindow.h \
     customqgraphicsview.h \

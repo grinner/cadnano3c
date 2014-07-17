@@ -10,8 +10,15 @@ class VirtualHelix : public CNObject
 {
     Q_OBJECT
 public:
+    enum StrandType {
+        Staple, Scaffold
+    };
+
     VirtualHelix();
     VirtualHelix( Part *part, uint row, uint column);
+
+    bool isDrawn5to3(StrandType ss_idx);
+    bool isEvenParity();
 
     CNObject *part();
 
@@ -19,10 +26,10 @@ public:
 
 private:
     QVector<uint> m_strands;    // array of strand id's
-    CNObject * m_part;
+    CNObject *m_part;
     Document *m_doc;
-    StrandSet *m_scaffold_ss;
-    StrandSet *m_staple_ss;
+    QVector<uint> m_scaffold_ss;
+    QVector<uint> m_staple_ss;
     uint m_number;
     coord_t m_coord;
 

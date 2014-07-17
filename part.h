@@ -9,7 +9,10 @@ class Part : public CNObject {
     Q_OBJECT
 public:
     Part(Document *doc);
+    bool isEvenParity(coord_t);
+
 private:
+    QHash<CNObject, CNObject> strands_dict;
 
 signals:
     void partActiveSliceIndexSignal(QObject *, int); // self, index
