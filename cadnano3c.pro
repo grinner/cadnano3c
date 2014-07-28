@@ -16,9 +16,9 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     customqgraphicsview.cpp \
     styles.cpp \
-    document.cpp \
+    model/document.cpp \
     cnobject.cpp \
-    vhelix.cpp
+    model/vhelix/vhelix.cpp
 
 HEADERS  += mainwindow.h \
     customqgraphicsview.h \
@@ -27,8 +27,8 @@ HEADERS  += mainwindow.h \
     cnobject.h \
     common.h \
     strandset.h \
-    vhelix.h \
-    part.h
+    model/vhelix/vhelix.h \
+    model/part/part.h
 
 FORMS    += mainwindow.ui
 
