@@ -9,7 +9,7 @@ RemoveVirtualHelixCommand::RemoveVirtualHelixCommand(Part *part, VirtualHelix *v
     setText("Delete VirtualHelix");
 }
 
-RemoveVirtualHelixCommand::redo() {
+virtual void RemoveVirtualHelixCommand::redo() {
      m_part->_removeVirtualHelix(vh);
      m_part->_recycleHelixIDNumber(m_id_num);
      // clear out part references
@@ -19,7 +19,7 @@ RemoveVirtualHelixCommand::redo() {
      // vh->setNumber(0)
 }
 
-RemoveVirtualHelixCommand::undo() {
+virtual void RemoveVirtualHelixCommand::undo() {
     m_vh->setPart(m_part);
     m_part->_addVirtualHelix(m_vh);
     // vh.setNumber(m_id_num)
