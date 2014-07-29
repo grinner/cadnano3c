@@ -93,7 +93,7 @@ void VirtualHelix::remove(bool use_undostack=true) {
     if (use_undostack) {
         us->beginMacro("Delete Virtual Helix");
     }
-    QUndoCommand c = VirtualHelix::RemoveVirtualHelixCommand(m_part, this);
+    QUndoCommand c = RemoveVirtualHelixCommand(m_part, this);
     if (use_undostack) {
         us->push(c);
         us->endMacro();

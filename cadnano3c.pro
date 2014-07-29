@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     styles.cpp \
     model/document.cpp \
     cnobject.cpp \
-    model/vhelix/vhelix.cpp
+    model/vhelix/vhelix.cpp \
+    model/vhelix/removevhelixcommand.cpp
 
 HEADERS  += mainwindow.h \
     customqgraphicsview.h \
@@ -28,7 +29,8 @@ HEADERS  += mainwindow.h \
     common.h \
     strandset.h \
     model/vhelix/vhelix.h \
-    model/part/part.h
+    model/part/part.h \
+    model/vhelix/removevhelixcommand.h
 
 FORMS    += mainwindow.ui
 
