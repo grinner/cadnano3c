@@ -2,11 +2,13 @@
 
 void Document::Document() : QObject(), m_id_counter(0) {
 //   app.documentWasCreatedSignal();
+    m_undostack(this);
+    m_undostack.setUndoLimit(10);
 }
 
-QUndoStack Document::undoStack() { return m_undostack; }
-QVector<Part> *Document::parts() { return m_parts; }
-QVector<Assembly> *Document::assemblies() { return m_assemblies; }
+QUndoStack *Document::undoStack() { return &m_undostack; }
+const QVector<Part>& Document::parts() { return m_parts; }
+const QVector<Assembly>& Document::assemblies() { return m_assemblies; }
 CNPart * Document::selectedPart() { return m_selected_part; }
 
 void Document::addToSelection(QObject *obj, value) {
@@ -40,8 +42,8 @@ void Document::clearSelections() {
 
 }
 
-void Document::addStrandToSelection(CNObject *strand, endpts_select_t value) {
-       CNObject *sS = strand.strandSet();
+void Document::addStrandToSelection(Strand *strand, endpts_select_t value) {
+       CNObject *sS = strand->strandSet();
        if (!m_selection_dict.contains(*sS)) {
            m_selection_dict.insert(*sS, new CNStrandSelectHash_t());
        }
@@ -49,8 +51,8 @@ void Document::addStrandToSelection(CNObject *strand, endpts_select_t value) {
        m_selected_changed_dict[*strand] = value;
 }
 
-bool Document::removeStrandFromSelection(CNObject *strand) {
-    CNObject *sS = strand.strandSet();
+bool Document::removeStrandFromSelection(Strand *strand) {
+    CNObject *sS = strand->strandSet();
     if (m_selection_dict.contains(*sS)) {
         CNStrandSelectHash_t *temp = m_selection_dict.value(*sS);
         if (temp->contains(*strand)) {

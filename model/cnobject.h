@@ -2,13 +2,13 @@
 #define CNOBJECT_H
 
 #include <QObject>
-#include "document.h"
+#include "model/document/document.h"
 
 class CNObject : public QObject
 {
     Q_OBJECT
 public:
-    CNObject(Document *doc)
+    CNObject(Document *doc);
     CNObject(CNObject *parent);
     uint uuid();
     Document * document();

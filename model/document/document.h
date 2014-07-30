@@ -28,9 +28,9 @@ public:
     QString filename() const;
     void setFilename(const QString &name);
 
-    QUndoStack undoStack();
-    QVector<Part> parts();
-    QVector<Assembly> assemblies();
+    QUndoStack * undoStack();
+    const QVector<Part>& parts();
+    const QVector<Assembly>& assemblies();
 
     void addPartToList(Part *part);
     void removePartFromList(Part *part);
@@ -43,8 +43,8 @@ public:
     bool removeFromSelection(CNObject *obj);
     void clearSelections();
 
-    void addStrandToSelection(CNObject *strand, endpts_select_t value);
-    bool removeStrandFromSelection(CNObject *strand);
+    void addStrandToSelection(Strand *strand, endpts_select_t value);
+    bool removeStrandFromSelection(Strand *strand);
 
     QSet<CNObject> *selectedOligos();
 

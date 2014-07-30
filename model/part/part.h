@@ -2,7 +2,7 @@
 #define PART_H
 
 #include "common.h"
-#include "model/document.h"
+#include "model/document/document.h"
 #include "model/cnobject.h"
 
 class Part : public CNObject {
