@@ -4,8 +4,8 @@
 #include <QVector>
 #include <QUndoStack>
 
-#include "cnobject.h"
-#include "part.h"
+#include "model/cnobject.h"
+#include "model/part/part.h"
 
 class VirtualHelix : public CNObject
 {

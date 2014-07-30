@@ -5,8 +5,8 @@ void Document::Document() : QObject(), m_id_counter(0) {
 }
 
 QUndoStack Document::undoStack() { return m_undostack; }
-QVector<CNPart> Document::parts() { return m_parts; }
-QVector<CNAssembly> Document::assemblies() { return m_assemblies; }
+QVector<Part> *Document::parts() { return m_parts; }
+QVector<Assembly> *Document::assemblies() { return m_assemblies; }
 CNPart * Document::selectedPart() { return m_selected_part; }
 
 void Document::addToSelection(QObject *obj, value) {
@@ -71,4 +71,18 @@ bool Document::removeStrandFromSelection(CNObject *strand) {
 
 QSet<CNObject> * Document::selectedOligos() {
     m_selected_oligos.clear();
+}
+
+void Document::addPartToList(Part *part) {
+    m_parts.push_back(part);
+}
+
+void Document::removePartFromList(Part *part) {
+       emit documentClearSelectionsSignal(this);
+       int idx = m_parts.indexOf(part);
+       if (idx < 0) {
+           // not there
+       } else {
+           m_parts.remove(idx);
+       }
 }

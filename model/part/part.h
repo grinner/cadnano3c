@@ -3,12 +3,12 @@
 
 #include "common.h"
 #include "model/document.h"
-#include "cnobject.h"
+#include "model/cnobject.h"
 
 class Part : public CNObject {
     Q_OBJECT
 public:
-    Part(Document *doc);
+    explicit Part(Document *doc);
     bool isEvenParity(coord_t);
 
     uint getVHID();

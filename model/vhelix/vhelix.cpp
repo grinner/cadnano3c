@@ -1,5 +1,11 @@
 #include "vhelix.h"
 
+VirtualHelix::VirtualHelix(Part *part, uint row, uint column) :
+    CNObject(part)
+{
+
+}
+
 bool VirtualHelix::isDrawn5to3(StrandType ss_idx) {
     bool isScaf = ss_idx == Scaffold;
     bool isEven = isEvenParity();

@@ -2,7 +2,7 @@
 #define REMOVEVHELIXCOMMAND_H
 
 #include <QUndoCommand>
-#include "vhelix.h"
+#include "model/vhelix/vhelix.h"
 #include "model/part/part.h"
 
 class RemoveVirtualHelixCommand : public QUndoCommand {

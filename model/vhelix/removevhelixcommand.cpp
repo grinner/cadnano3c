@@ -15,14 +15,14 @@ virtual void RemoveVirtualHelixCommand::redo() {
      // clear out part references
      emit m_vh->virtualHelixRemovedSignal(m_vh);
      emit m_part->partActiveSliceResizeSignal(m_part);
-     // vh->setPart(0)
-     // vh->setNumber(0)
+     // vh->setPart(0);
+     // vh->setNumber(0);
 }
 
 virtual void RemoveVirtualHelixCommand::undo() {
     m_vh->setPart(m_part);
     m_part->_addVirtualHelix(m_vh);
-    // vh.setNumber(m_id_num)
+    // vh.setNumber(m_id_num);
     if (!m_vh->number()) {
         m_part->_reserveHelixIDNumber(m_is_parity_even, requested_id_num=id_num);
     }

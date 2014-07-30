@@ -16,21 +16,31 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     customqgraphicsview.cpp \
     styles.cpp \
-    model/document.cpp \
-    cnobject.cpp \
+    model/document/document.cpp \
+    model/cnobject.cpp \
     model/vhelix/vhelix.cpp \
-    model/vhelix/removevhelixcommand.cpp
+    model/vhelix/removevhelixcommand.cpp \
+    model/part/part.cpp \
+    model/part/createxovercommand.cpp \
+    model/oligo/oligo.cpp \
+    model/strand/strand.cpp \
+    model/document/addpartcommand.cpp
 
 HEADERS  += mainwindow.h \
     customqgraphicsview.h \
     styles.h \
-    document.h \
-    cnobject.h \
+    model/document/document.h \
+    model/cnobject.h \
     common.h \
     strandset.h \
     model/vhelix/vhelix.h \
     model/part/part.h \
-    model/vhelix/removevhelixcommand.h
+    model/vhelix/removevhelixcommand.h \
+    model/part/renumbervhelicescommand.h \
+    model/part/createxovercommand.h \
+    model/oligo/oligo.h \
+    model/strand/strand.h \
+    model/document/addpartcommand.h
 
 FORMS    += mainwindow.ui
 

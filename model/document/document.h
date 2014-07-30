@@ -9,7 +9,7 @@
 #include <QMultiHash>
 #include <QSet>
 #include "common.h"
-#include "cnobject.h"
+#include "model/cnobject.h"
 
 // adhoc tuple (strand_id, (is_selected_low, is_selected_high))
 typedef QPair<CNObject *, endpts_select_t> strand_select_t;
@@ -29,8 +29,11 @@ public:
     void setFilename(const QString &name);
 
     QUndoStack undoStack();
-    QVector<CNPart> parts();
-    QVector<CNAssembly> assemblies();
+    QVector<Part> parts();
+    QVector<Assembly> assemblies();
+
+    void addPartToList(Part *part);
+    void removePartFromList(Part *part);
 
     uint getUUID();
     void recycleUUID(uint id);

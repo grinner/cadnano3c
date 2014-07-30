@@ -8,7 +8,8 @@ class CNObject : public QObject
 {
     Q_OBJECT
 public:
-    CNObject(Document *);
+    CNObject(Document *doc)
+    CNObject(CNObject *parent);
     uint uuid();
     Document * document();
 
