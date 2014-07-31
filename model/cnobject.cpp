@@ -9,4 +9,4 @@ void CNObject::CNObject(CNObject *parent) : QObject(parent), m_document(parent->
 
 Document * CNObject::document() { return m_document; }
 
-uint CNObject::uuid() { return m_uuid; }
+const uint CNObject::uuid() const { return m_uuid; }

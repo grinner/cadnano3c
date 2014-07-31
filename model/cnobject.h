@@ -10,7 +10,7 @@ class CNObject : public QObject
 public:
     CNObject(Document *doc);
     CNObject(CNObject *parent);
-    uint uuid();
+    const uint uuid() const;
     Document * document();
 
 private:

@@ -32,7 +32,7 @@ signals:
     void partVirtualHelixAddedSignal(QObject *, QObject *); // self, virtualhelix
     void partVirtualHelixRenumberedSignal(QObject *, coord_t); // self, coord
     void partVirtualHelixResizedSignal(QObject *, coord_t); //self, coord
-    void partVirtualHelicesReorderedSignal(QObject *, list); // self, list of coords
+    void partVirtualHelicesReorderedSignal(QObject *, QObject *); // self, list of coords
     void partHideSignal(QObject *);
     void partActiveVirtualHelixChangedSignal(QObject *, QObject *);
     void partModAddedSignal(QObject *, QObject *, QObject *);

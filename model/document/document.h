@@ -11,12 +11,13 @@
 #include "common.h"
 #include "model/cnobject.h"
 #include "model/part/part.h"
+#include "model/assembly/assembly.h"
 #include "model/strand/strand.h"
 
 // adhoc tuple (strand_id, (is_selected_low, is_selected_high))
 typedef QPair<CNObject *, endpts_select_t> strand_select_t;
 
-typedef QHash<CNObject, strand_select_t> CNStrandSelectHash_t;
+typedef QHash<CNObject *, strand_select_t> CNStrandSelectHash_t;
 
 class Document : public QObject
 {
