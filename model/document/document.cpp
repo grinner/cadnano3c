@@ -7,8 +7,8 @@ void Document::Document() : QObject(), m_id_counter(0) {
 }
 
 QUndoStack *Document::undoStack() { return &m_undostack; }
-const QVector<Part>& Document::parts() { return m_parts; }
-const QVector<Assembly>& Document::assemblies() { return m_assemblies; }
+const QVector<Part *>& Document::parts() { return m_parts; }
+const QVector<Assembly *> &Document::assemblies() { return m_assemblies; }
 CNPart * Document::selectedPart() { return m_selected_part; }
 
 void Document::addToSelection(QObject *obj, value) {

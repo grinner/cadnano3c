@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     model/part/createxovercommand.cpp \
     model/oligo/oligo.cpp \
     model/strand/strand.cpp \
-    model/document/addpartcommand.cpp
+    model/document/addpartcommand.cpp \
+    model/assembly/assembly.cpp
 
 HEADERS  += mainwindow.h \
     customqgraphicsview.h \
@@ -40,7 +41,8 @@ HEADERS  += mainwindow.h \
     model/part/createxovercommand.h \
     model/oligo/oligo.h \
     model/strand/strand.h \
-    model/document/addpartcommand.h
+    model/document/addpartcommand.h \
+    model/assembly/assembly.h
 
 FORMS    += mainwindow.ui
 
