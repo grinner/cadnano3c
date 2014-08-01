@@ -66,7 +66,7 @@ private:
 
     QSet<CNObject *> m_selected_oligos;
 
-    CNController m_controller;
+//    CNController m_controller;
     Part * m_selected_part;
     QHash<CNObject *, CNStrandSelectHash_t> m_selection_dict;
     // assume no dupes and you can use a multihash
