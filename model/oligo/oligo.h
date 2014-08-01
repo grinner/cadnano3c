@@ -1,13 +1,14 @@
 #ifndef OLIGO_H
 #define OLIGO_H
 
+#include <QObject>
 #include "model/cnobject.h"
 
 class Oligo : public CNObject
 {
     Q_OBJECT
 public:
-    explicit Oligo(QObject *parent = 0);
+    explicit Oligo(CNObject *parent = 0);
 
 signals:
 

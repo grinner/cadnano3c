@@ -1,4 +1,5 @@
 #include "vhelix.h"
+#include "removevhelixcommand.h"
 
 VirtualHelix::VirtualHelix(Part *part, uint row, uint column) :
     CNObject(part)
@@ -17,11 +18,11 @@ bool VirtualHelix::isEvenParity() {
 }
 
 
-CNObject *VirtualHelix::part(){
+Part *VirtualHelix::part(){
     return m_part;
 }
 
-void VirtualHelix::setPart(CNObject *new_part) {
+void VirtualHelix::setPart(Part *new_part) {
     m_part = new_part;
     setParent(new_part);
 }
@@ -94,16 +95,16 @@ uint VirtualHelix::indexOfRightmostNonemptyBase() {
     return std::max(a,b);
 }
 
-void VirtualHelix::remove(bool use_undostack=true) {
+void VirtualHelix::remove(bool use_undostack) {
     QUndoStack *us = undoStack();
     if (use_undostack) {
         us->beginMacro("Delete Virtual Helix");
     }
-    QUndoCommand c = RemoveVirtualHelixCommand(m_part, this);
+    QUndoCommand *c =  new RemoveVirtualHelixCommand(m_part, this);
     if (use_undostack) {
         us->push(c);
         us->endMacro();
     } else {
-        c.redo();
+        c->redo();
     }
 }

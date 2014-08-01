@@ -9,10 +9,11 @@
 #include <QMultiHash>
 #include <QSet>
 #include "common.h"
+class CNObject;
 #include "model/cnobject.h"
-#include "model/part/part.h"
-#include "model/assembly/assembly.h"
-#include "model/strand/strand.h"
+//#include "model/part/part.h"
+//#include "model/assembly/assembly.h"
+//#include "model/strand/strand.h"
 
 // adhoc tuple (strand_id, (is_selected_low, is_selected_high))
 typedef QPair<CNObject *, endpts_select_t> strand_select_t;
@@ -32,24 +33,26 @@ public:
     void setFilename(const QString &name);
 
     QUndoStack * undoStack();
-    const QVector<Part *>& parts();
-    const QVector<Assembly *>& assemblies();
+    const QVector<CNObject *>& parts();
+    const QVector<CNObject *>& assemblies();
 
-    void addPartToList(Part *part);
-    void removePartFromList(Part *part);
+    void addPartToList(CNObject *part);
+    void removePartFromList(CNObject *part);
 
     uint getUUID();
     void recycleUUID(uint id);
 
-    Part * selectedPart();
+    CNObject * selectedPart();
+    void setSelectedPart(CNObject *part);
+
     void addToSelection(CNObject *, endpts_select_t value);
     bool removeFromSelection(CNObject *obj);
     void clearSelections();
 
-    void addStrandToSelection(Strand *strand, endpts_select_t value);
-    bool removeStrandFromSelection(Strand *strand);
+    void addStrandToSelection(CNObject *strand, endpts_select_t value);
+    bool removeStrandFromSelection(CNObject *strand);
 
-    QSet<CNObject *> *selectedOligos();
+    QSet<CNObject *> &selectedOligos();
 
 
 
@@ -58,8 +61,8 @@ public:
 private:
     QString m_filename;
     QUndoStack m_undostack;
-    QVector<Assembly *> m_assemblies;
-    QVector<Part *> m_parts;
+    QVector<CNObject *> m_assemblies;
+    QVector<CNObject *> m_parts;
 
     QVector<uint> m_used_ids;
     uint m_id_counter;
@@ -67,7 +70,7 @@ private:
     QSet<CNObject *> m_selected_oligos;
 
 //    CNController m_controller;
-    Part * m_selected_part;
+    CNObject * m_selected_part;
     QHash<CNObject *, CNStrandSelectHash_t> m_selection_dict;
     // assume no dupes and you can use a multihash
     QMultiHash<uint, strand_select_t> m_selection_dict2;
@@ -75,7 +78,7 @@ private:
     CNStrandSelectHash_t m_selection_changed_dict;
 
 signals:
-    void documentPartAddedSignal(const QObject &, QObject &); // doc, part
+    void documentPartAddedSignal(QObject *, CNObject *); // doc, part
     void documentSelectedChangedSignal();
     void documentSelectionFilterChangedSignal();
     void documentResetViewSignal();

@@ -17,13 +17,13 @@ public:
 
     VirtualHelix();
     VirtualHelix( Part *part, uint row, uint column);
-    ~VirtualHelix();
+//    ~VirtualHelix();
 
     bool isDrawn5to3(StrandType ss_idx);
     bool isEvenParity();
 
-    CNObject *part();
-    void setPart(CNObject *new_part);
+    Part *part();
+    void setPart(Part *new_part);
 
     uint number();
     void setNumber(uint number);
@@ -45,7 +45,7 @@ public:
 
 private:
     QVector<uint> m_strands;    // array of strand id's
-    CNObject *m_part;
+    Part *m_part;
     Document *m_doc;
 
     QVector<uint> m_scaffold_ss;
@@ -56,8 +56,8 @@ private:
     uint maxNonZeroIdx(QVector<uint> &ss);
 
 signals:
-    virtualHelixRemovedSignal(QObject *);  // self
-    virtualHelixNumberChangedSignal(QObject *, uint); // self, num
-}
+    void virtualHelixRemovedSignal(QObject *);  // self
+    void virtualHelixNumberChangedSignal(QObject *, uint); // self, num
+};
 
 #endif // VHELIX_H

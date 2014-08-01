@@ -9,8 +9,8 @@ RemoveVirtualHelixCommand::RemoveVirtualHelixCommand(Part *part, VirtualHelix *v
     setText("Delete VirtualHelix");
 }
 
-virtual void RemoveVirtualHelixCommand::redo() {
-     m_part->_removeVirtualHelix(vh);
+void RemoveVirtualHelixCommand::redo() {
+     m_part->_removeVirtualHelix(m_vh);
      m_part->_recycleHelixIDNumber(m_id_num);
      // clear out part references
      emit m_vh->virtualHelixRemovedSignal(m_vh);
@@ -19,12 +19,12 @@ virtual void RemoveVirtualHelixCommand::redo() {
      // vh->setNumber(0);
 }
 
-virtual void RemoveVirtualHelixCommand::undo() {
+void RemoveVirtualHelixCommand::undo() {
     m_vh->setPart(m_part);
     m_part->_addVirtualHelix(m_vh);
     // vh.setNumber(m_id_num);
     if (!m_vh->number()) {
-        m_part->_reserveHelixIDNumber(m_is_parity_even, requested_id_num=id_num);
+        m_part->_reserveHelixIDNumber(m_is_parity_even, m_id_num);
     }
     emit m_part->partVirtualHelixAddedSignal(m_part, m_vh);
     emit m_part->partActiveSliceResizeSignal(m_part);

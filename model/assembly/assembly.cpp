@@ -1,6 +1,10 @@
 #include "assembly.h"
 
-Assembly::Assembly(QObject *parent) :
-    CNObject(parent)
-{
-}
+//Assembly::Assembly(Document *parent) :
+//    CNObject(parent)
+//{
+//}
+
+//Assembly(CNObject *parent) :
+//{
+//}

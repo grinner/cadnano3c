@@ -33,7 +33,6 @@ HEADERS  += mainwindow.h \
     model/document/document.h \
     model/cnobject.h \
     common.h \
-    strandset.h \
     model/vhelix/vhelix.h \
     model/part/part.h \
     model/vhelix/removevhelixcommand.h \

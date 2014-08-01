@@ -1,6 +1,7 @@
 #ifndef PART_H
 #define PART_H
 
+#include <QObject>
 #include "common.h"
 #include "model/document/document.h"
 #include "model/cnobject.h"
@@ -13,6 +14,11 @@ public:
 
     uint getVHID();
     void recycleVHID(uint id);
+
+    void _removeVirtualHelix(CNObject *virtual_helix);
+    void _recycleHelixIDNumber(uint id_num);
+    void _addVirtualHelix(CNObject *virtual_helix);
+    void _reserveHelixIDNumber(bool is_parity_even, int requested_id_num=-1);
 
 
 private:
@@ -36,7 +42,7 @@ signals:
     void partHideSignal(QObject *);
     void partActiveVirtualHelixChangedSignal(QObject *, QObject *);
     void partModAddedSignal(QObject *, QObject *, QObject *);
-    void partModRemovedSignal(QObject, QObject);
+    void partModRemovedSignal(QObject *, QObject *);
     void partModChangedSignal(QObject *, QObject *, QObject *);
 };
 

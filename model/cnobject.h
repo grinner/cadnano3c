@@ -2,6 +2,8 @@
 #define CNOBJECT_H
 
 #include <QObject>
+#include <QUndoStack>
+class Document; // tell the compiler about document
 #include "model/document/document.h"
 
 class CNObject : public QObject
@@ -10,8 +12,10 @@ class CNObject : public QObject
 public:
     CNObject(Document *doc);
     CNObject(CNObject *parent);
-    const uint uuid() const;
+    uint uuid() const;
     Document * document();
+    void setDocument(Document *doc);
+    QUndoStack * undoStack();
 
 private:
     uint m_uuid;

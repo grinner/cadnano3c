@@ -5,6 +5,6 @@ Strand::Strand(CNObject *parent) :
 {
 }
 
-Strand::strandSet() {
+QVector<uint> *Strand::strandSet() {
     return m_strandset;
 }

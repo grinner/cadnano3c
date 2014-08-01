@@ -1,6 +1,7 @@
 #ifndef STRAND_H
 #define STRAND_H
 
+#include <QObject>
 #include "model/cnobject.h"
 #include "model/vhelix/vhelix.h"
 
